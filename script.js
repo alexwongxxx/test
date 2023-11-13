@@ -13,8 +13,9 @@ function initMap() {
 }
 
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-        var userLocation = {
+    // Use watchPosition to continuously monitor the user's location
+    navigator.geolocation.watchPosition(function (position) {
+        const userLocation = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
